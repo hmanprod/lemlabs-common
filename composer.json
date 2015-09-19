@@ -2,7 +2,7 @@
     "name" : "lemlabs/common-bundle",
     "description" : "Use an abstract class to setup CRUD Controller on SF2",
     "type" : "symfony-bundle",
-	"license"": "GPL-3.0+",
+	"license" : "GPL-3.0+",
     "authors" : [{
         "name" : "RABOTOVAO Hery",
         "email" : "hmanprod@gmail.com"
@@ -22,5 +22,5 @@
         }
     },
     "target-dir" : "LemLabsCommonBundle",
-	"minimum-stability": "dev"
+	"minimum-stability" : "dev"
 }
