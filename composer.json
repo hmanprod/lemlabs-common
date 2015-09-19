@@ -21,6 +21,6 @@
             "LemLabs\\CommonBundle" : ""
         }
     },
-    "target-dir" : "LemLabsCommonBundle",
+    "target-dir" : "LemLabs/CommonBundle",
 	"minimum-stability" : "dev"
 }
