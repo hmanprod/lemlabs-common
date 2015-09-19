@@ -20,5 +20,5 @@
             "LemLabs\\CommonBundle" : ""
         }
     },
-    "target-dir" : "LemLabsCommonBundle",
+    "target-dir" : "LemLabsCommonBundle"
 }
