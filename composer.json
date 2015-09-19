@@ -1,0 +1,24 @@
+{
+    "name" : "lemlabs/common-bundle",
+    "description" : "Use an abstract class to setup CRUD Controller on SF2",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "RABOTOVAO Hery",
+        "email" : "hmanprod@gmail.com"
+    }],
+    "keywords" : [
+        "crud bundle"
+    ],
+    "require" : {
+            "php" : ">=5.5.0",
+            "symfony/framework-bundle" : ">=2.5.6",
+            "twig/twig" : "*",
+            "doctrine/doctrine-bundle" : "*"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "LemLabs\\CommonBundle" : ""
+        }
+    },
+    "target-dir" : "LemLabsCommonBundle",
+}

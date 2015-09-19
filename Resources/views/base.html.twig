@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>
+         {% block title %}{{ headline }}{% if title is defined %} - {{ title }}{% endif %}{% endblock %}
+		Sportee
+        </title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/lemlabscommon/css/bootstrap.css') }}" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="{{ asset('bundles/lemlabscommon/vendor/select2-master/dist/css/select2.css') }}" type="text/css" charset="utf-8">
+    
+        <link rel="stylesheet" href="{{ asset('bundles/lemlabscommon/css/style.css') }}" type="text/css" charset="utf-8">        
+        {% endblock %}
+        
+        <script src="{{ asset('bundles/lemlabscommon/js/vendor/jquery-1.9.1.min.js') }}" charset="utf-8"></script>
+    </head>
+    <body{% if no_bg is defined %} class="no-background"{% endif %}>
+    
+    	{% block top %}
+    	<!-- Fixed top -->
+		<div id="top">
+			<div class="fixed">
+				<span class="title"><i class="icon icon-home"></i>&nbsp;Sportee</span>
+				<ul class="top-menu">
+					{% if app.request.get('_route') != 'dashboard_index' %}
+					<li><a class="fullview"></a></li>
+					{% endif %}
+					<li class="dropdown">
+						{% if app.user is not empty %}
+							<a class="user-menu" data-toggle="dropdown">
+								{% if app.user.firstname is defined %}
+								<img src="{{ 'img/profil.jpg'|imagine_filter('tiny') }}" alt="{{ app.user.firstname ~ ' ' ~ app.user.lastname }}" />
+								<span>Bonjour, {{ app.user.firstname ~ ' ' ~ app.user.lastname }} ({{ app.user.role.name }})<b class="caret"></b></span>
+								{% else %}
+								<img src="{{ 'img/profil.jpg'|imagine_filter('tiny') }}" alt="Master" />
+								<span>Bonjour, Master (Super-administrateur)<b class="caret"></b></span>
+								{% endif %}
+							</a>
+							<ul class="dropdown-menu">
+								{% if app.user.firstname is defined %}
+								<li><a href="{{ path('profil') }}" title="Profil"><i class="icon-user"></i>Profil</a></li>
+								{% endif %}
+								<li><a href="{{ path('admin_logout') }}" title="Déconnexion"><i class="icon-remove"></i>Déconnexion</a></li>
+							</ul>
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /fixed top -->
+		{% endblock %}
+		
+		
+		{% block sidebar %}
+		<!-- Content container -->
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div id="general">
+				{% block leftmenu %}LEFT MENU HERE (Recommend KNP MENU BUNDLE){%endblock%}
+			</div>
+		</div>
+		<!-- /sidebar -->
+		{% endblock %}
+		
+		{% block content %}
+		<!-- Content -->
+		<div id="content">
+
+		    <!-- Content wrapper -->
+		    <div class="wrapper">
+		    	
+		    	{% block headline %}
+		    	<!-- Page header -->
+				<div class="page-header">
+			    	<div class="page-title">
+				    	<h5>{{ headline }}</h5>
+				    	<span>{{ title }}</span>
+			    	</div>
+				</div>
+				<!-- /page header -->
+				{% endblock %}
+				
+				<!-- Alerts -->
+				<div class="alerts">
+				{% for type, flashMessages in app.session.flashbag.all() %}
+				    {% for flashMessage in flashMessages %}
+				        <div class="alert widget alert-{{ type }} fade in">
+				        	<button type="button" class="close" data-dismiss="alert">&times;</button>
+				            {{ flashMessage|raw }}
+				        </div>
+				    {% endfor %}
+				{% endfor %}
+				</div>
+				<!-- /alerts -->
+				
+				
+				{% block body %}{% endblock %}
+	        
+	        
+				{% block javascripts %}
+	        	<script src="{{ asset('bundles/lemlabscommon/js/vendor/modernizr.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/js/vendor/jquery-ui-1.10.3.custom.min.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/js/vendor/jquery.ui.datepicker-fr.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/js/vendor/bootstrap.min.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/js/ui/jquery.easytabs.min.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/js/ui/jquery.collapsible.min.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/vendor/select2-master/dist/js/select2.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/vendor/select2-master/dist/js/i18n/fr.js') }}" charset="utf-8"></script>
+	        	<script src="{{ asset('bundles/lemlabscommon/js/app.js') }}" charset="utf-8"></script>
+	        	{% endblock %}
+		    </div>
+		    
+		</div>
+		<!-- /content -->
+		{% endblock %}
+		
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<div class="alert widget alert-block alert-{{ type }} fade in">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<h6>{{ abstract }}</h6>
+	{{ message|raw }}
+	<p>
+		<a class="btn btn-danger" href="{{ action.link }}">{{ action.label }}</a> <a class="btn" href="#" data-dismiss="alert">
+		{% if action.label == 'Oui' %}Non{% else %}Annuler{% endif %}
+		</a>
+	</p>
+</div>

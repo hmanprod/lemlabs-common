@@ -1,0 +1,28 @@
+{% if entities is not empty %}
+	<form action="" method="post">
+		<div class="table-overflow">
+			    <table class="table table-striped">
+			        <thead>
+			            <tr>
+			                <th>Nom</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        {% for entity in entities %}
+			            <tr>
+			                <td>{{ entity }}</td>
+			                <td>
+			                	<a class="btn btn-info btn-small" href="{{ path(routeName['EDIT'], { 'id': entity.id }) }}" title="Modifier"><i class="icon-pencil icon-white"></i>&nbsp;Modifier</a>
+			                	<a class="btn btn-danger btn-small" href="{{ path(routeName['DELETE'], { 'id': entity.id }) }}" data-toggle="confirm" data-loading-text="Chargement ..." title="Supprimer"><i class="icon-trash icon-white"></i>&nbsp;Supprimer</a>
+			                </td>
+			            </tr>
+			        {% endfor %}
+			        </tbody>
+			    </table>
+			</div>
+	</form>
+{% else %}
+	<div class="well body">
+		Aucun {{ verbose['SINGULAR'] }} n'est enregistré{{ verbose['ACCORD'] }} !
+	</div>
+{% endif %}

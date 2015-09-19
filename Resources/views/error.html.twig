@@ -1,0 +1,25 @@
+{% extends 'LemLabs::base.html.twig' %}
+
+{% set no_bg = true %}
+{% set headline = status_text %}
+
+{% block sidebar %}{% endblock %}
+{% block headline %}{% endblock %}
+{% block top %}{% endblock %}
+
+{% block content %}
+
+<!-- Error wrapper -->
+<div class="error-page">
+    <span class="reason">{{ status_code }}</span>
+	<div class="error-content">
+        <span class="reason-title">Oops ! Une erreur est survenue - {{ status_text }}</span>
+
+        <div class="row-fluid error-buttons">
+            <a href="javascript:history.go(-1)" title="Retour" class="btn btn-info span6">Retour</a><a href="dashboard" title="Tableau de bord" class="btn btn-success span6">Tableau de bord</a>
+        </div>
+    </div>
+</div>  
+<!-- /error wrapper -->
+
+{% endblock %}

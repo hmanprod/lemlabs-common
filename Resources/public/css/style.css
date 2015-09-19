@@ -1,0 +1,385 @@
+
+
+#top .fixed .title {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 45px;
+	color: #fff;
+}
+
+#top .fixed .title i {
+	line-height: 45px;
+	margin-right: 5px;
+}
+
+@media (max-width: 480px) {
+	#top .fixed .title {
+		display: none;
+	}
+}
+
+h2 .btn {
+	font-weight: normal;
+}
+
+.form-horizontal .controls .label {
+	float: left;
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
+
+.more-link {
+	display: block;
+	clear: both;
+}
+
+.resize-y {
+	resize: vertical;
+}
+
+.select2-container {
+    display: block;
+    min-width: 150px;
+}
+
+.select2-container-multi .select2-choices {
+    border: 1px solid #ddd;
+}
+
+.canevas-ajax-form{
+	display: none;
+}
+
+.canevas-content.notempty .canevas-edit-link a {
+    float: left;
+    margin-right: 5px;
+}
+
+.canevas-content.notempty .canevas-edit-link {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.canevas-content {
+    padding: 5px;
+    position: relative;
+}
+
+.canevas-submit-wrap{
+	text-align:center;
+}
+
+.text-center{
+	text-align:center;
+}
+
+
+.link-edit{
+	margin-top:1px;
+}
+
+.link-minus span{
+	color:#ddd !important;
+	cursor : default;
+}
+
+.no-border{
+	border:none !important;
+}
+
+.table-striped.no-border tbody tr:nth-child(2n) td, .table-striped.no-border tbody tr:nth-child(2n) th {
+    background-color: #f7f7f7;
+}
+
+.canevas-commentaire {
+    color: #999;
+    font-size: 12px;
+    font-style: italic;
+    text-align: justify;
+}
+
+.canevas-hidden-input{ border:none; width: 140px; background-color: transparent;}
+
+.clear{clear: both;}
+
+.canevas-cours-column{
+	padding-top:15px;
+	float:left;
+	width: 60px;
+	margin-right:4px;
+}
+.canevas-matiere-column{
+	padding-top:15px;
+	float:left;
+	width: 40px;
+	margin-right:4px;
+}
+.canevas-cours-wrap-column{ float:left; padding-top:15px; margin-right:4px;}
+.canevas-absence-column {
+    -moz-box-shadow: 0 0 1px #555;
+    -o-box-shadow: 0 0 1px #555;
+    -webkit-box-shadow: 0 0 1px #555;
+    -ms-box-shadow: 0 0 1px #555;
+    box-shadow: 0 0 1px #555;
+    cursor: pointer;
+    margin-bottom: 4px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0 !important;
+    width: 60px !important;
+}
+
+.canevas-absence-column div{ padding: 5px; text-align:center;}
+.canevas-absence-column .absence-status {
+    border-bottom: 1px solid #999;
+    color: #666;
+    display: none;
+    font-weight: bold;
+    line-height: 15px;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+}
+.canevas-absence-column:hover .absence-status{display:block;}
+
+.canevas-legend{ margin-top:20px; line-height: 25px;}
+.canevas-legend span {
+    margin-right: 7px;
+    margin-top: 5px;
+}
+.canevas-select{ width:100%;}
+.canevas-ajax-form{ padding-bottom: 20px; clear: both;}
+.btn-eleve-absence{ cursor: pointer;}
+.buttons-show-absence .btn-success.btn-absence{ background-image : none !important; border: none !important;}
+.absence-ajax-form{ }
+.unbind{ cursor:default !important;}
+.select2-results {
+    max-height: 270px;
+}
+.mass-update-form select {
+    height: 27px;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+#app_corebundle_plandevolstype_days input, #app_corebundle_plandevolstype_days label{ display: inline-block ; margin-left:7px; }
+
+#app_corebundle_plandevolstype_days label{ margin-right:15px; }
+
+.embed-form .controls .control-group {
+		display: inline-block ; 
+		margin-left: 10px;
+		border-top: 1px solid #eee !important;
+    	box-shadow: 0 1px 0 #fff inset !important;
+} 
+
+.embed-form > .control-group {
+    border-top: none;
+    padding-left: 0;
+}
+
+.embed-form > .control-group > .controls{ margin-left: 0%; display:inline-block;}
+
+.embed-form > .control-group > .control-label{ 
+	width:8%;
+	display:none;
+}
+
+.embed-form > .control-group > .btn-danger { 
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.embed-form .controls .control-group .controls {margin-left: 0px;}
+
+.embed-form .controls .control-group label { width: 100%; }
+
+.input80{ width:80px;}
+.input120{ width:120px;}
+.input160{ width:160px;}
+.input180{ width:180px;}
+
+#app_corebundle_plandevolstype_escales .control-group .controls .control-group,
+#app_corebundle_tarifairestype_typePassager .control-group .controls .control-group,
+#app_corebundle_tarifairestype_timeLimit .control-group .controls .control-group,
+#app_corebundle_tarifairestype_intervalleValidite .control-group .controls .control-group,
+#app_corebundle_plandevolstype_intervalleValidite .control-group .controls .control-group
+{ 
+	/*padding: 18px 0;*/
+	padding: 0;
+	}
+#app_corebundle_plandevolstype_escales .control-group > .btn-danger { margin-left: 20px;}
+#app_corebundle_plandevolstype_vols > .control-group > .controls > div > .control-group { 
+	display : block; 
+}
+
+.embed-form .controls .escale-row .control-group { 
+	padding: 0 ; 
+	border-top : none!important;
+}
+
+.embed-form .controls .control-group .daylist input, .embed-form .controls .control-group .daylist label {
+	display:inline-block;
+    margin-right: 5px;
+    width: auto;
+}
+.periode > .control-group  > .control-label{ display:none;}
+.periode.embed-form .controls .control-group{ border-top:none!important; padding-top: 0 !important;}
+.periode.embed-form > .control-group{ border-top:none!important; border-bottom: 1px solid #eee !important; }
+.daylist label {
+	margin-right: 5px;
+}
+#app_corebundle_plandevolstype_intervalleValidite .control-group{
+	border-top : none!important;
+}
+.controls .date select{ width : 130px;} 
+
+.form-horizontal .btn-success {
+    float: right;
+}
+
+.select2-container .select2-choice .select2-arrow{ 
+	background-image:none; 
+	background-color:transparent;
+}
+
+.widget .bar-select > span {
+    display: none;
+}
+
+.widget .bar-select > span.select2 {
+    display: block;
+}
+.bar-select > span.select2{
+	margin-top: 0;
+}
+
+.help-inline {
+	color: #a84846;
+}
+
+.help-inline:before{
+	content:'! ';
+}
+.timepicker{ width:80px; }
+.terminale{ width:110px; }
+.tag{
+	background-color: #e3e3e3;
+	display: inline-block;
+	font-size:11px;
+	padding : 0 5px;
+	-moz-border-radius : 4px;
+	-webkit-border-radius : 4px;
+	-o-border-radius : 4px;
+	-ms-border-radius : 4px;
+	border-radius : 4px;
+	margin-bottom: 3px;
+}
+.tag.tag-success{
+	background: #4ca15b;
+    color: #ffffff;
+}
+.tag.tag-danger{
+	background-color: #c05343;
+	color: #ffffff;
+}
+.options-bar .datepicker {
+    border: 1px solid #ccc;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    height: 24px;
+    text-indent: 5px;
+    width: 80px;
+    color: #444;
+}
+.search-flight-message {
+    border: 2px dashed #ccc;
+    color: #c0c0c0;
+    padding: 40px;
+}
+li a.btn.btn-search-flight {
+    line-height: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 5px 8px;
+}
+li .btn-search-flight [class^="icon-"] {
+	color:#fff;
+	margin-top: 0px;
+}
+
+.page-title span {
+    font-size: 12px;
+}
+
+.label-inverse, .badge-inverse {
+    background-color: #e3e3e3;
+    color:#666;
+}
+hr {
+	border:none;
+	border-top: 1px solid #d3d3d3;
+}
+.alert-total{
+	background-color: #da4f49!important;
+	color:#fff!important;
+}
+.tag-tarif {
+    text-align: center;
+    width: 125px;
+}
+
+.tag-tarif .btn-submit {
+    display: block;
+    margin-bottom: 5px;
+}
+.annotation{ font-size:11px; color:#666;}
+
+.table-overflow .dropdown-menu li:not(.divider) {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none !important;
+}
+.dropdown-menu .divider {
+    margin: 0 1px;
+}
+.min-width-180 .select2-container{
+	min-width: 165px;
+}
+
+.options-bar {
+    padding: 0 12px;
+}
+
+.options-bar > li:first-child {
+    padding-left: 0px;
+}
+
+.bar-select { margin: 12px 7px 12px 0;}
+
+.label-day{ font-size:10px;}
+
+.label-periode{ /*min-width:150px;*/}
+
+.passenger-tr{
+	display:none;
+}
+#content {
+    /*overflow: auto;*/
+}
+body,#content {
+    /*height: 100%;*/
+}
+
+.widget > form > .table-overflow:last-child{ margin-bottom:100px;}
+.navbar .tools-wrapper .btn-group {
+	margin:6px 0 0 0; padding: 0;
+	}
+.navbar .tools-wrapper .btn-group .btn{
+	margin-bottom:2px;
+}
+.label{   margin-bottom: 3px;}
+.label-full{ display: block; text-align: center;}
+.label-col2{ display: inline-block; text-align: center; width: 43%;}
