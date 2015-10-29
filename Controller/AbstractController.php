@@ -65,13 +65,20 @@ class AbstractController extends Controller implements InterfaceController
 			self::INDEX=>'LemLabsCommonBundle:Abstract:index.html.twig',
 			self::SHOW=>'LemLabsCommonBundle:Abstract:show.html.twig',
 			);
+        
+    public $em;
+            
+    public function getManager()
+    {
+        return $this->getDoctrine()->getManager();
+    }
 	
-	public function getViewPath($key)
-	{
-		if(isset($this->viewPath[$key]) && $this->viewPath[$key])
-			return $this->viewPath[$key];
-		return  $this->defaultViewPath[$key];
-	}
+    public function getViewPath($key)
+    {
+            if(isset($this->viewPath[$key]) && $this->viewPath[$key])
+                    return $this->viewPath[$key];
+            return  $this->defaultViewPath[$key];
+    }
 	
     public function getVerbose($key)
     {
@@ -89,7 +96,7 @@ class AbstractController extends Controller implements InterfaceController
 	
 	public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getManager();
         $entities = $em->getRepository($this->entity)->findAll();
 
         return $this->render($this->getViewPath(self::INDEX), array(
@@ -105,7 +112,7 @@ class AbstractController extends Controller implements InterfaceController
     
     public function showAction(Request $request)
     {
-    	$em = $this->getDoctrine()->getManager();
+    	$em = $this->getManager();
     	
     	if ($request->isXmlHttpRequest()) {
     		$options = json_decode($request->request->get('options'));
@@ -151,7 +158,7 @@ class AbstractController extends Controller implements InterfaceController
      */
     public function createAction(Request $request)
     {
-		$em = $this->getDoctrine()->getManager();
+		$em = $this->getManager();
 		$className = $em->getRepository($this->entity)->getClassName();
         $entity  = new $className();
         $form = $this->createForm(new $this->formType(), $entity);
@@ -189,7 +196,7 @@ class AbstractController extends Controller implements InterfaceController
      */
     public function editAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getManager();
 
         $entity = $em->getRepository($this->entity)->find($id);
         
@@ -235,7 +242,7 @@ class AbstractController extends Controller implements InterfaceController
      */
     public function deleteAction(Request $request, $id)
     {
-    	$em = $this->getDoctrine()->getManager();
+    	$em = $this->getManager();
         $entity = $em->getRepository($this->entity)->find($id);
 
         if (!$entity) {
