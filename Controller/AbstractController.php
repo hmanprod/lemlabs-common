@@ -101,7 +101,7 @@ class AbstractController extends Controller implements InterfaceController
 
         return $this->render($this->getViewPath(self::INDEX), array(
         	'headline' => $this->headline,
-        	'title'	   => 'Liste des '.$this->getVerbose(self::PLURAL),
+        	'title'	   => 'List of '.$this->getVerbose(self::PLURAL),
             'entities' => $entities,
 			'routeName'   => $this->routeName,
 			'verbose' => $this->verbose,
@@ -133,6 +133,8 @@ class AbstractController extends Controller implements InterfaceController
     		
     		return $this->render($this->getViewPath(self::SHOW), array(
     				'entities'	=> $entities,
+                    'headline' => $this->headline,
+                                'title'	   => 'List of '.$this->getVerbose(self::PLURAL),
     				'options'	=> $options,
 					'routeName'   => $this->routeName,
 					'verbose' => $this->verbose
@@ -142,7 +144,7 @@ class AbstractController extends Controller implements InterfaceController
 	    
 	    	return $this->render($this->getViewPath(self::SHOW), array(
 	    			'headline' => $this->headline,
-                    'title'	   => 'Liste des '.$this->getVerbose(self::PLURAL),
+                    'title'	   => 'List of '.$this->getVerbose(self::PLURAL),
                     'entities' => $entities,
 					'routeName'   => $this->routeName,
 					'verbose' => $this->verbose
@@ -173,7 +175,7 @@ class AbstractController extends Controller implements InterfaceController
 	            
 	            $this->get('session')->getFlashBag()->add(
 					'success',
-					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> a bien été créé'.$this->getVerbose(self::ACCORD).' !'
+					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> was created'.$this->getVerbose(self::ACCORD).' !'
 				);
 	
 	            return $this->redirect($this->generateUrl($this->getRouteName(self::INDEX)));
@@ -182,7 +184,7 @@ class AbstractController extends Controller implements InterfaceController
 
         return $this->render($this->getViewPath(self::CREATE), array(
         	'headline' => $this->headline,
-        	'title'	   => 'Ajouter '.$this->getVerbose(self::DEFINI).' '.$this->getVerbose(self::SINGULAR),
+        	'title'	   => 'Add '.$this->getVerbose(self::DEFINI).' '.$this->getVerbose(self::SINGULAR),
             'entity'   => $entity,
             'form'	   => $form->createView(),
 			'routeName'   => $this->routeName,
@@ -211,7 +213,7 @@ class AbstractController extends Controller implements InterfaceController
         
         $editForm = $this->createForm(new $this->formType(), $entity);
         
-        if ($request->getMethod() == 'PUT') {
+        if ($request->getMethod() == 'POST') {
 	        $editForm->bind($request);
 	        
 	        if ($editForm->isValid()) {
@@ -219,7 +221,7 @@ class AbstractController extends Controller implements InterfaceController
 	            
 				$this->get('session')->getFlashBag()->add(
 					'success',
-					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> a été mise à jour !'
+					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> was update !'
 				);
 	
 	            return $this->redirect($this->generateUrl($this->getRouteName(self::INDEX)));
@@ -228,7 +230,7 @@ class AbstractController extends Controller implements InterfaceController
 
         return $this->render($this->getViewPath(self::EDIT), array(
         	'headline'	=> $this->headline,
-        	'title'		=> 'Modifier '.$this->getVerbose(self::DEFINI).' '.$this->getVerbose(self::SINGULAR),
+        	'title'		=> 'Edit '.$this->getVerbose(self::DEFINI).' '.$this->getVerbose(self::SINGULAR),
             'entity'	=> $entity,
             'edit_form' => $editForm->createView(),
 			'routeName'   => $this->routeName,
@@ -258,7 +260,7 @@ class AbstractController extends Controller implements InterfaceController
 	    	$confirm = $this->container->get('Confirm');
 	    	
 	    	return new JsonResponse(array(
-	    		'response' => $confirm->set('Êtes-vous sûr de vouloir supprimer '.$this->getVerbose(self::INDEFINI).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> ?', 'Êtes-vous sûr ?', 'error', array(
+	    		'response' => $confirm->set('Are you sure to delete '.$this->getVerbose(self::INDEFINI).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> ?', 'Are your sure ?', 'error', array(
 	    			'link'  => $request->request->get('action'),
 	    			'label' => 'Supprimer',
 	    		))->render(),
@@ -271,7 +273,7 @@ class AbstractController extends Controller implements InterfaceController
 	        	
 	            $this->get('session')->getFlashBag()->add(
 					'success',
-					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> a été supprimé'.$this->getVerbose(self::ACCORD).' !'
+					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> was deleted '.$this->getVerbose(self::ACCORD).' !'
 				);
 		        
 		        return $this->redirect($this->generateUrl($this->getRouteName(self::INDEX)));
