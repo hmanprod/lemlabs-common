@@ -1,6 +1,6 @@
-# lemlabs-common
+# lemlabs-common / coco
 Use an abstract class to setup CRUD Controller on SF2
 
 ** TODO **
-- Add Setting Entity for administration utility
-- Fix unit (twig extension) method to handle string too
+- Add "Setting" Entity for administration utility
+- Add coco template as a new layout
