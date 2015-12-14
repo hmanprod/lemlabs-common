@@ -13,9 +13,14 @@ Use an abstract class to setup CRUD Controller on SF2
 ** TODO **
 - Testing if default configuration for config.yml is loaded correctly
 - Testing the coco template as new layout
+- Get the controller name automatically
 - Add "Setting" Entity for administration utility
 - Add "Securite" Controller to handle authenfication
 
+
+** Evolution Roadmap **
+- Generate all routes automatically from the controller to avoid to setup them
+- Create FormType automatically
 
 
 ** INSTALLATION **
@@ -32,9 +37,9 @@ Enjoy
 
 ** CREATE A CRUD CONTROLLER FOR AN ENTITY OR DOCUMENT **
 
-1.Make sure your model (entity or document) has the magic method __toString()
+1. Make sure your model (entity or document) has the magic method __toString()
 
-2.Create a controller by extending the abstract LemLabs\CommonBundle\Controller\AbstractController
+2. Create a controller by extending the abstract LemLabs\CommonBundle\Controller\AbstractController
 
 3. Fill this attribute in your controller. See the example below :
 	
@@ -57,8 +62,7 @@ Enjoy
     //    self::INDEX => 'LemLabsCommonBundle:Abstract:index.html.twig',
     //    self::SHOW => 'LemLabsCommonBundle:Abstract:show.html.twig',
     //);
-	
-	
+
 	//Route Name (You need to create all this routes in your routing file)	
 	public $routeName = array(
 			self::CREATE=>'admin_category_create',
