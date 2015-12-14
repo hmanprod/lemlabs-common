@@ -64,7 +64,7 @@ Enjoy
     //);
 	
 	
-	//Route Name	
+	//Route Name (You need to create all this routes in your routing file)	
 	public $routeName = array(
 			self::CREATE=>'admin_category_create',
 			self::EDIT=>'admin_category_edit',
