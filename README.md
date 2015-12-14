@@ -4,10 +4,16 @@ lemlabs-common (coco version) by RABOTOVAO Hery Mandimby
 Use an abstract class to setup CRUD Controller on SF2
 
 
+** CHANGELOGS **
+- Add coco template with this bundle
+- Update documenation readme.md
+
 
 ** TODO **
-- Add "Setting" Entity for administration utility
 - Testing the coco template as new layout
+- Create his own block of configuration for config.yml instead of using twig globals
+- Add "Setting" Entity for administration utility
+- Add "Securite" Controller to handle authenfication
 
 
 
