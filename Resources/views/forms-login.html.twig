@@ -1,0 +1,29 @@
+{% block form_row %}
+{% spaceless %}
+{% if required and label %}
+{% set label = label~' *' %}
+{% endif %}
+
+    <div class="form-group login-input{% if errors | length %}has-error{% endif %}">
+                {% if attr.icon is defined %}<i class="{{ attr.icon }} overlay"></i>{% endif %}
+	        {{ form_widget(form) }}
+       		<span class="text-danger"><small>{{ form_errors(form) }}</small></span>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <span class="help-inline">
+        {% for error in errors %}
+            {{
+                error.messagePluralization is null
+                    ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                    : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+            }}
+        {% endfor %}
+    </span>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

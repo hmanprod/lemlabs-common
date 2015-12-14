@@ -1,7 +1,7 @@
 twig:
     form:
         resources:
-            - "::forms-bootstrap3.html.twig"
+            - "Lemlabs::forms-bootstrap3.html.twig"
 lemlabs_common :
     templates:
         base_template : "Lemlabs::base-coco.html.twig"
