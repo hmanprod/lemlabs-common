@@ -18,7 +18,18 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('app_common');
+        $rootNode = $treeBuilder->root('lemlabs_common');
+        
+        $rootNode
+            ->children()
+                ->arrayNode('layout')
+                    ->children()
+                        ->integerNode('base_template')->end()
+                        ->scalarNode('form_template')->end()
+                    ->end()
+                ->end() // twitter
+            ->end()
+        ;
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

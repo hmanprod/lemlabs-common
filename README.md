@@ -5,13 +5,14 @@ Use an abstract class to setup CRUD Controller on SF2
 
 
 ** CHANGELOGS **
+- Create his own block of configuration for config.yml instead of using twig globals
 - Add coco template with this bundle
 - Update documenation readme.md
 
 
 ** TODO **
+- Testing if default configuration for config.yml is loaded correctly
 - Testing the coco template as new layout
-- Create his own block of configuration for config.yml instead of using twig globals
 - Add "Setting" Entity for administration utility
 - Add "Securite" Controller to handle authenfication
 
