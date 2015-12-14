@@ -10,12 +10,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class Tools extends \Twig_Extension
 {
-	protected $container;
+    protected $container;
 
-	public function __construct(ContainerInterface $serviceContainer)
-	{
-		$this->container = $serviceContainer;
-	}
+    public function __construct(ContainerInterface $serviceContainer)
+    {
+            $this->container = $serviceContainer;
+    }
 
     public function getFilters()
     {
@@ -24,11 +24,12 @@ class Tools extends \Twig_Extension
         	'plural' => new \Twig_Filter_Method($this, 'plural'),
         );
     }
-
-	public function getTests()
+    
+    public function getTests()
     {
     	return array(
-    	'getControllerName' =>  new \Twig_Function_Method($this, 'getControllerName')
+    	'getControllerName' =>  new \Twig_Function_Method($this, 'getControllerName'),
+        'getBaseTemplate' =>  new \Twig_Function_Method($this, 'getBaseTemplate')
     	);
     }
 
@@ -43,8 +44,10 @@ class Tools extends \Twig_Extension
     		return 's';
     }
     
-    
-
+    public function getBaseTemplate()
+    {
+        return $this->container->getParameter('lemlabs_common.base_template');
+    }
 
     public function getControllerName()
     {

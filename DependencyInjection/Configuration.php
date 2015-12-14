@@ -22,10 +22,9 @@ class Configuration implements ConfigurationInterface
         
         $rootNode
             ->children()
-                ->arrayNode('layout')
+                ->arrayNode('templates')
                     ->children()
                         ->integerNode('base_template')->end()
-                        ->scalarNode('form_template')->end()
                     ->end()
                 ->end() // twitter
             ->end()

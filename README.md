@@ -22,15 +22,6 @@ Use an abstract class to setup CRUD Controller on SF2
 
 Install using composer :
 composer require lemlabs/common-bundle dev-coco
-
-Configure le layout dans config.yml :
-twig:
-    form:
-        resources:
-            - "::forms-bootstrap3.html.twig"
-    globals:
-        common_bundle :
-            template : "::base-coco.html.twig"
 			
 Enjoy
 
@@ -84,3 +75,7 @@ Enjoy
 			);
 
 4. Overide default action from LemLabs\CommonBundle\Controller\AbstractController if needed (Optionnal)
+
+
+** UPLOAD CUSTOM BASE TEMPLATE OR FORM TEMPLATE **
+Comming soon
