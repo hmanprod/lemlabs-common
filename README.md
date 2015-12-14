@@ -14,13 +14,16 @@ Use an abstract class to setup CRUD Controller on SF2
 - Testing if default configuration for config.yml is loaded correctly
 - Testing the coco template as new layout
 - Get the controller name automatically
+- Thrown an exception if entity is not provided
+- Get entity name as headline if headline is not provided
 - Add "Setting" Entity for administration utility
 - Add "Securite" Controller to handle authenfication
 
 
 ** Evolution Roadmap **
+- Simplify the controller to only setup Entity référence and wording
 - Generate all routes automatically from the controller to avoid to setup them
-- Create FormType automatically
+- Create FormType automatically  to avoid to setup it
 
 
 ** INSTALLATION **
