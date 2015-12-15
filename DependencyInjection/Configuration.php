@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CommonBundle\DependencyInjection;
+namespace LemLabs\CommonBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -22,11 +22,9 @@ class Configuration implements ConfigurationInterface
         
         $rootNode
             ->children()
-                ->arrayNode('templates')
-                    ->children()
-                        ->integerNode('base_template')->end()
+                        ->scalarNode('base_template')->defaultValue("LemLabsCommonBundle:Base:base-coco.html.twig")->end()
+                        ->scalarNode('knp_menu_controller')->defaultValue(false)->end()
                     ->end()
-                ->end() // twitter
             ->end()
         ;
 

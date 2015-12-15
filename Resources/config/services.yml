@@ -5,8 +5,8 @@ services:
 #    app_common.example:
 #        class: %app_common.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
-     app.twig.settings_extension:
-        class: LemLabs\CommonBundle\Twig\Tools
+     app.twig.tools_extension:
+        class: LemLabs\CommonBundle\Twig\ToolsExtension
         arguments:
             serviceContainer : "@service_container"
         tags:
@@ -14,6 +14,6 @@ services:
             
      #Confirm service        
      confirm:
-        class: LemLabs\CommonBundle\Services\Confirm\Confirm
+        class: LemLabs\CommonBundle\Services\Confirm\Confirm   
         arguments:
             - @twig

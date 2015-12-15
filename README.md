@@ -31,8 +31,11 @@ Use an abstract class to setup CRUD Controller on SF2
 Install using composer :
 composer require lemlabs/common-bundle dev-coco
 
-Install assets:
+Install assets :
 php app/console assets:install
+
+Add the bundle to AppKernel.php :
+new LemLabs\CommonBundle\LemLabsCommonBundle(),
 			
 Enjoy
 

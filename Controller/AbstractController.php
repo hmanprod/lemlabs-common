@@ -67,6 +67,11 @@ class AbstractController extends Controller implements InterfaceController
 			);
         
     public $em;
+    
+    public function checkAction(){
+        if(!$this->entity)
+            throw new \Exception('Please provide "$this->entity". Attribute value is missing');
+    }
             
     public function getManager()
     {

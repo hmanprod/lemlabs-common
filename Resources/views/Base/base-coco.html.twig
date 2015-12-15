@@ -73,7 +73,7 @@
                 <p class="text-center">Are you sure want to logout ?</p>
                 <p class="text-center">
                     <button class="btn btn-danger md-close">Nope!</button>
-                    <a href="{{ path('admin_logout') }}" class="btn btn-success md-close">Yeah, I'm sure</a>
+{#                    <a href="{{ path('admin_logout') }}" class="btn btn-success md-close">Yeah, I'm sure</a>#}
                 </p>
             </div>
         </div>
@@ -101,7 +101,7 @@
                                 <li class="dropdown topbar-profile">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{#<span class="rounded-image topbar-profile-image"><img src="{{ asset('bundles/lemlabscommon/template/coco/images/users/user-35.jpg') }}"></span>#} {{ app.user }} <i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ path('admin_profil') }}">My Profile</a></li>
+{#                                        <li><a href="{{ path('admin_profil') }}">My Profile</a></li>#}
 {#                                        <li><a href="#">Change Password</a></li>
                                         <li><a href="#">Account Setting</a></li>#}
                                         <li class="divider"></li>
@@ -155,7 +155,9 @@
                     <!--- Divider -->
                     <div id="sidebar-menu">
                         {% block leftmenu %}
-                            {{ knp_menu_render('AppCoreBundle:Navigation:mainMenu', {'template': 'AppCoreBundle:Menu:knp_menu.html.twig', 'currentClass': 'active'}) }}
+                            {% if knp_menu_controller() %}
+                            {{ knp_menu_render(knp_menu_controller(), {'template': 'LemLabsCommonBundle:Menu:knp_menu.html.twig', 'currentClass': 'active'}) }}
+                            {% endif %}
                             {#<ul>
                                 <li class='has_sub'>
                                         <a href='javascript:void(0);'><i class='icon-home-3'></i><span>Dashboard</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>

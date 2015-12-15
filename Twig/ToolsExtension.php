@@ -1,6 +1,6 @@
 <?php
 
-namespace App\CommonBundle\Twig;
+namespace LemLabs\CommonBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Adds some twig syntax helper extension
  *
  */
-class Tools extends \Twig_Extension
+class ToolsExtension extends \Twig_Extension
 {
     protected $container;
 
@@ -25,11 +25,12 @@ class Tools extends \Twig_Extension
         );
     }
     
-    public function getTests()
+    public function getFunctions()
     {
     	return array(
-    	'getControllerName' =>  new \Twig_Function_Method($this, 'getControllerName'),
-        'getBaseTemplate' =>  new \Twig_Function_Method($this, 'getBaseTemplate')
+            new \Twig_SimpleFunction('controllername', array($this, 'getControllerName')),
+            new \Twig_SimpleFunction('base_template', array($this, 'getBaseTemplate')),
+            new \Twig_SimpleFunction('knp_menu_controller', array($this, 'getKnpMenuController')),
     	);
     }
 
@@ -42,6 +43,13 @@ class Tools extends \Twig_Extension
     public function plural($data){
     	if((int)$data > 1)
     		return 's';
+    }
+    
+    public function getKnpMenuController()
+    {
+        if($this->container->getParameter('lemlabs_common.knp_menu_controller'))
+            return $this->container->getParameter('lemlabs_common.knp_menu_controller');
+        return null;
     }
     
     public function getBaseTemplate()
