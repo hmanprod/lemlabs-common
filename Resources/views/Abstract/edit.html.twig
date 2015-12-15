@@ -1,24 +1,26 @@
 {% extends base_template() %}
 
 {% block body %}
-	<div class="widget row-fluid">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<h6>{{ title }}</h6>
-			</div>
-		</div>
-		
-		<div class="well">    
-		    <form class="form-horizontal" action="{{ path(routeName['EDIT'], { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-		        <input type="hidden" name="_method" value="PUT" />
-		        {{ form_widget(edit_form) }}
-		        
-		        <div class="control-group">
-		        	<div class="controls">
-		        		<button type="submit" class="btn btn-success">Modifier</button>
-		        	</div>
-		        </div>
-		    </form>
-		</div>
-	</div>
+
+    <div class="widget">
+        <div class="widget-header transparent">
+            <h2><strong>{{ title }}</strong></h2>
+            <div class="additional-btn">
+{#                <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>#}
+                <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
+{#                <a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>#}
+            </div>
+        </div>
+        <div class="widget-content padding">
+            <form class="form-horizontal" role="form" action="{{ path(routeName['EDIT'], {'id':entity.id}) }}" method="post" {{ form_enctype(edit_form) }}>
+                {{ form_widget(edit_form) }}
+                <div class="control-group">
+                    <div class="controls  text-right">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
 {% endblock %}

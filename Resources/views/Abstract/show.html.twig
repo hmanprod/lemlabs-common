@@ -1,28 +1,81 @@
-{% if entities is not empty %}
-	<form action="" method="post">
-		<div class="table-overflow">
-			    <table class="table table-striped">
-			        <thead>
-			            <tr>
-			                <th>Nom</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			        {% for entity in entities %}
-			            <tr>
-			                <td>{{ entity }}</td>
-			                <td>
-			                	<a class="btn btn-info btn-small" href="{{ path(routeName['EDIT'], { 'id': entity.id }) }}" title="Modifier"><i class="icon-pencil icon-white"></i>&nbsp;Modifier</a>
-			                	<a class="btn btn-danger btn-small" href="{{ path(routeName['DELETE'], { 'id': entity.id }) }}" data-toggle="confirm" data-loading-text="Chargement ..." title="Supprimer"><i class="icon-trash icon-white"></i>&nbsp;Supprimer</a>
-			                </td>
-			            </tr>
-			        {% endfor %}
-			        </tbody>
-			    </table>
-			</div>
-	</form>
-{% else %}
-	<div class="well body">
-		Aucun {{ verbose['SINGULAR'] }} n'est enregistré{{ verbose['ACCORD'] }} !
-	</div>
-{% endif %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="widget">
+            <div class="widget-header transparent">
+                <h2><strong>{{ title }}</strong></h2>
+                <div class="additional-btn">
+{#                    <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>#}
+                    <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
+{#                    <a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>#}
+                </div>
+            </div>
+            <div class="widget-content">
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {#<form role="form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                            </form>#}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="toolbar-btn-action">
+                                <a class="btn btn-success" href="{{ path(routeName['CREATE']) }}"><i class="fa fa-plus-circle"></i> Add new</a>
+                                {#{% if entities is not empty %}
+                                <a class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                                <a class="btn btn-primary"><i class="fa fa-refresh"></i> Update</a>
+                                {% endif %}#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if entities is not empty %}
+                <div class="table-responsive">
+                    <table data-sortable class="table table-hover table-striped table-grid">
+                        <thead>
+                            <tr>
+{#                                <th>#</th>#}
+{#                                <th style="width: 30px" data-sortable="false"><input type="checkbox" class="rows-check"></th>#}
+                                <th>Name</th>
+                                <th data-sortable="false"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for entity in entities %}
+                            <tr>
+{#                                <td>{{ entity.id}}</td>#}
+{#                                <td><input type="checkbox" class="rows-check"></td><td><strong>John Doe</strong></td>#}
+                                <td>{{ entity }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-xs pull-right"  style="width:60px;">
+                                        <a data-toggle="tooltip"  title="Edit" class="btn btn-default" href="{{ path(routeName['EDIT'], { 'id': entity.id }) }}" ><i class="fa fa-edit"></i></a>
+                                        <button data-modal="stick-top-{{ entity.id}}" class="btn btn-default md-trigger" title="Delete"><i class="fa fa-remove"></i></button>
+                                    </div>
+                                    <!-- Modal slide stick top -->
+                                    <div class="md-modal md-slide-stick-top" id="stick-top-{{ entity.id}}">
+                                            <div class="md-content">
+{#                                                    <h3>Modal Dialog</h3>#}
+                                                    <div>
+                                                        <p>Are you sure to delete <strong>"{{ entity }}"</strong> ?</p>
+                                                            <p>
+                                                            <a class="btn btn-success" href="{{ path(routeName['DELETE'], { 'id': entity.id }) }}">Delete</a>
+                                                            <button class="btn btn-danger md-close">No</button>
+                                                            </p>
+                                                    </div>
+                                            </div><!-- End div .md-content -->
+                                    </div><!-- End div .md-modal .md-slide-stick-top -->
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="widget-content padding">
+                    {{ verbose['SINGULAR'] | capitalize }} not found !
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

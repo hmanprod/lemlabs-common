@@ -1,45 +1,39 @@
 {% extends base_template() %}
 
 {% block body %}
-	<h5 class="widget-name">
-		<i class="icon-reorder"></i>Filtres
-	</h5>
-	<div class="widget">
-		<ul class="options-bar" data-filter="{{ path(routeName['SHOW']) }}">
-			<li style="width: auto">
-				<div class="bar-select pull-left">
-					<span>Libellé :</span>
-					<select name="id" data-trigger="change" class="select2">
-						<option selected="selected" value="all">Tous les {{ verbose['PLURAL'] }}</option>
-						{% for entity in entities %}
-							<option value="{{ entity.id }}">{{ entity }}</option>
-						{% endfor %}
-					</select>
-				</div>
-				
-				<div class="loading pull-left" style="display: none;">
-                    <span>Chargement...</span>
-                    <img src="{{ asset('img/elements/loaders/6s.gif') }}" alt="Chargement...">
+    <div class="widget">
+        <div class="widget-header transparent">
+            <h2><strong>Filter</strong> Form</h2>
+            <div class="additional-btn">
+                {#                <a class="hidden reload" href="#"><i class="icon-ccw-1"></i></a>#}
+                <a class="widget-toggle" href="#"><i class="icon-down-open-2"></i></a>
+                    {#                <a class="widget-close" href="#"><i class="icon-cancel-3"></i></a>#}
+            </div>
+        </div>
+        <div class="widget-content padding">
+            <form role="form" class="form-inline data-filter" action="{{ path(routeName['SHOW']) }}">
+                <div class="form-group">
+                    <label for="id" class="sr-only">Libellé :</label>
+                    <select id="id" name="id" data-trigger="change" class="select2">
+                        <option selected="selected" value="all">All {{ verbose['PLURAL'] }}</option>
+                        {% for entity in entities %}
+                            <option value="{{ entity.id }}">{{ entity }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
-			</li>
-		</ul>
-	</div>
-	
-	<div class="widget">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<h6>{{ title }}</h6>
-				<a class="btn btn-success pull-right" href="{{ path(routeName['CREATE']) }}" title="Ajouter {{ verbose['DEFINI'] }} {{ verbose['SINGULAR'] }}"><i class="icon-plus"></i>&nbsp;Ajouter {{ verbose['DEFINI'] }} {{ verbose['SINGULAR'] }}</a>
-			</div>
-		</div>
-		
-		<div>
-		<!--<h5 class="widget-name">
-			<i class="icon-th"></i>Résultats
-		</h5>-->
-		<div class="widget" data-role="wrapper">
-			{{ render(controller(controllerName~':show')) }}
-		</div>
-	</div>
-	</div>
+                <div class="form-group pull-right" style="display: none;">
+                    {#                    <span>Chargement...</span>#}
+                    <img src="{{ asset('img/elements/loaders/6s.gif') }}" class="loading">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div data-role="wrapper">
+        {{ render(controller(controllerName~':show')) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset("template/coco/assets/js/common.js") }}"></script>
 {% endblock %}
