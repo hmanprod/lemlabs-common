@@ -4,7 +4,10 @@ lemlabs-common (coco version) by RABOTOVAO Hery Mandimby
 Use an abstract class to setup CRUD Controller on SF2
 
 
-** CHANGELOGS v0.1 **
+** CHANGELOGS v0.1.1.a **
+- Add login base template using coco template
+- Handle app.user with mininal features (logout & get username)
+- Add compatibility with knp_menu_bundle for rendering the left main menu
 - Using coco template for CRUD
 - Configuration via config.yml is loaded correctly
 - Create his own block of configuration for config.yml instead of using twig globals
@@ -23,6 +26,7 @@ Use an abstract class to setup CRUD Controller on SF2
 --> Use route + parentMenu + permission
 --> List route from SF2
 --> Get role entity from config.yml if not use select2 multiple input[type=text]
+- Add a user minimal page for editing password and email
 
 ** BUG **
 - Logout path didn't work on dev environnement
