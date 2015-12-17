@@ -1676,7 +1676,7 @@ iframe {
   position: relative;
   z-index: 1;
   width: 280px;
-  background: #489DBD;
+  background: #343838;
 }
 .logo h1 {
   margin: 0px auto;
@@ -1749,7 +1749,7 @@ iframe {
   z-index: 2;
 }
 .side-menu.left {
-  background: #489DBD;
+  background: #343838;
   position: absolute;
   top: 50px;
 }

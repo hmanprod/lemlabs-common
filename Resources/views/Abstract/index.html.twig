@@ -13,7 +13,7 @@
         <div class="widget-content padding">
             <form role="form" class="form-inline data-filter" action="{{ path(routeName['SHOW']) }}">
                 <div class="form-group">
-                    <label for="id" class="sr-only">Libellé :</label>
+                    <label for="id" class="sr-only">Label :</label>
                     <select id="id" name="id" data-trigger="change" class="select2">
                         <option selected="selected" value="all">All {{ verbose['PLURAL'] }}</option>
                         {% for entity in entities %}

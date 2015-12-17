@@ -210,7 +210,7 @@ class AbstractController extends Controller implements InterfaceController
         if (!$entity) {
             $this->get('session')->getFlashBag()->add(
 				'danger',
-				ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' sélectionné'.$this->getVerbose(self::ACCORD).' n\'existe pas !'
+				ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' not found !'
 			);
 	        
 	        return $this->redirect($this->generateUrl($this->getRouteName(self::INDEX)));
@@ -255,7 +255,7 @@ class AbstractController extends Controller implements InterfaceController
         if (!$entity) {
             $this->get('session')->getFlashBag()->add(
 				'danger',
-				ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' sélectionné'.$this->getVerbose(self::ACCORD).' n\'existe pas !'
+				ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' not found !'
 			);
 	        
 	        return $this->redirect($this->generateUrl($this->getRouteName(self::INDEX)));
@@ -267,7 +267,7 @@ class AbstractController extends Controller implements InterfaceController
 	    	return new JsonResponse(array(
 	    		'response' => $confirm->set('Are you sure to delete '.$this->getVerbose(self::INDEFINI).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> ?', 'Are your sure ?', 'error', array(
 	    			'link'  => $request->request->get('action'),
-	    			'label' => 'Supprimer',
+	    			'label' => 'Delete',
 	    		))->render(),
 	    	));
     	}
@@ -278,7 +278,7 @@ class AbstractController extends Controller implements InterfaceController
 	        	
 	            $this->get('session')->getFlashBag()->add(
 					'success',
-					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> was deleted '.$this->getVerbose(self::ACCORD).' !'
+					ucfirst($this->getVerbose(self::INDEFINI)).' '.$this->getVerbose(self::SINGULAR).' <strong>' . $entity->__toString() . '</strong> was deleted !'
 				);
 		        
 		        return $this->redirect($this->generateUrl($this->getRouteName(self::INDEX)));

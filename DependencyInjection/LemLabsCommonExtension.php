@@ -28,6 +28,7 @@ class LemLabsCommonExtension extends Extension
 
         
         $container->setParameter('lemlabs_common.base_template', $config['base_template']);
+        $container->setParameter('lemlabs_common.form_template', $config['form_template']);
         $container->setParameter('lemlabs_common.knp_menu_controller', $config['knp_menu_controller']);
     }
     

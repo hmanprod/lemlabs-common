@@ -30,6 +30,7 @@ class ToolsExtension extends \Twig_Extension
     	return array(
             new \Twig_SimpleFunction('controllername', array($this, 'getControllerName')),
             new \Twig_SimpleFunction('base_template', array($this, 'getBaseTemplate')),
+            new \Twig_SimpleFunction('form_template', array($this, 'getFormTemplate')),
             new \Twig_SimpleFunction('knp_menu_controller', array($this, 'getKnpMenuController')),
     	);
     }
@@ -55,6 +56,11 @@ class ToolsExtension extends \Twig_Extension
     public function getBaseTemplate()
     {
         return $this->container->getParameter('lemlabs_common.base_template');
+    }
+    
+    public function getFormTemplate()
+    {
+        return $this->container->getParameter('lemlabs_common.form_template');
     }
 
     public function getControllerName()

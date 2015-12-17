@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                         ->scalarNode('base_template')->defaultValue("LemLabsCommonBundle:Base:base-coco.html.twig")->end()
+                        ->scalarNode('form_template')->defaultValue("LemLabsCommonBundle:Form:forms-bootstrap3.html.twig")->end()
                         ->scalarNode('knp_menu_controller')->defaultValue(false)->end()
                     ->end()
             ->end()

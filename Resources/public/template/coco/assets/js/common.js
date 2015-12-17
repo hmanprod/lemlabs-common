@@ -105,6 +105,12 @@ $(document).ready(function() {
 			$('.datepicker-from').datepicker('option', 'maxDate', selectedDate);
 		}
 	});
+        
+        $('.use-datepicker').datepicker({
+		showOtherMonths:true,
+		autoSize: true,
+		dateFormat: 'dd-mm-yy'
+	});
 	
 	$("[data-trigger=popup]").unbind('click');
 	$("[data-trigger=popup]").click(function(event){

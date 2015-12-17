@@ -22,7 +22,7 @@
         <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/ios7-switch/ios7-switch.css') }}" rel="stylesheet" /> 
         <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/pace/pace.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/sortable/sortable-theme-bootstrap.css') }}" rel="stylesheet" />
-{#        <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/bootstrap-datepicker/css/datepicker.css') }}" rel="stylesheet" />#}
+        <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/bootstrap-datepicker/css/datepicker.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/jquery-icheck/skins/all.css') }}" rel="stylesheet" />
         <link href="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" charset="utf-8">
         <!-- Code Highlighter for Demo -->
@@ -66,6 +66,7 @@
     <!-- Modal Start -->
 
     <!-- Modal Logout -->
+    {% if app.user.id is defined %}
     <div class="md-modal md-just-me" id="logout-modal">
         <div class="md-content">
             <h3><strong>Logout</strong> Confirmation</h3>
@@ -78,6 +79,7 @@
             </div>
         </div>
     </div>        
+    {% endif %}
     <!-- Modal End -->
     <div id="wrapper">
         {% block top %}
@@ -98,6 +100,7 @@
                         <div class="navbar-collapse2">
                             <ul class="nav navbar-nav navbar-right top-navbar">
                                 <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
+                                {% if app.user.id is defined %}
                                 <li class="dropdown topbar-profile">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{#<span class="rounded-image topbar-profile-image"><img src="{{ asset('bundles/lemlabscommon/template/coco/images/users/user-35.jpg') }}"></span>#} {{ app.user }} <i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown-menu">
@@ -110,6 +113,7 @@
                                         <li><a class="md-trigger" data-modal="logout-modal"><i class="icon-logout-1"></i> Logout</a></li>
                                     </ul>
                                 </li>
+                                {% endif %}
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
@@ -240,7 +244,7 @@
         <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/bootstrap-select2/select2.min.js') }}"></script>
         <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/magnific-popup/jquery.magnific-popup.min.js') }}"></script> 
         <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/pace/pace.min.js') }}"></script>
-{#      <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>#}
+        <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
         <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/jquery-icheck/icheck.min.js') }}"></script>
         {% block js_libs %}
             
@@ -248,7 +252,7 @@
 
         <!-- Demo Specific JS Libraries -->
         <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/libs/prettify/prettify.js') }}"></script>
-
+        <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/js/common.js') }}"></script>
         <script src="{{ asset('bundles/lemlabscommon/template/coco/assets/js/init.js') }}"></script>
         
         <script>

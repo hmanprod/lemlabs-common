@@ -4,26 +4,29 @@ lemlabs-common (coco version) by RABOTOVAO Hery Mandimby
 Use an abstract class to setup CRUD Controller on SF2
 
 
-** CHANGELOGS **
+** CHANGELOGS v0.1 **
+- Configuration via config.yml is loaded correctly
 - Create his own block of configuration for config.yml instead of using twig globals
 - Add coco template with this bundle
 - Update documenation readme.md
 
 
 ** TODO **
-- Testing if default configuration for config.yml is loaded correctly
 - Testing the coco template as new layout
-- Get the controller name automatically
 - Thrown an exception if entity is not provided
 - Get entity name as headline if headline is not provided
+- Handle template logo via config.yml
+- Ajouter la traduction fr
 - Add "Setting" Entity for administration utility
 - Add "Securite" Controller to handle authenfication
 
 
 ** Evolution Roadmap **
 - Simplify the controller to only setup Entity référence and wording
-- Generate all routes automatically from the controller to avoid to setup them
-- Create FormType automatically  to avoid to setup it
+--> Get the controller name automatically
+--> Generate all routes automatically from the controller to avoid to setup them
+--> Create FormType automatically  to avoid to setup it
+- Generate correctly a form as Centurion and Sonata do
 
 
 ** INSTALLATION **
