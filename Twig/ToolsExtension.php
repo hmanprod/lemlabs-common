@@ -31,8 +31,8 @@ class ToolsExtension extends \Twig_Extension
             new \Twig_SimpleFunction('controllername', array($this, 'getControllerName')),
             new \Twig_SimpleFunction('base_template', array($this, 'getBaseTemplate')),
             new \Twig_SimpleFunction('form_template', array($this, 'getFormTemplate')),
-            new \Twig_SimpleFunction('knp_menu_controller', array($this, 'getKnpMenuController')),
-			new \Twig_SimpleFunction('knp_menu_template', array($this, 'getKnpMenuTemplate')),
+            new \Twig_SimpleFunction('knp_menu_builder', array($this, 'getKnpMenuBuilder')),
+            new \Twig_SimpleFunction('knp_menu_template', array($this, 'getKnpMenuTemplate'))
     	);
     }
 
@@ -47,10 +47,10 @@ class ToolsExtension extends \Twig_Extension
     		return 's';
     }
     
-    public function getKnpMenuController()
+    public function getKnpMenuBuilder()
     {
-        if($this->container->getParameter('lemlabs_common.knp_menu_controller'))
-            return $this->container->getParameter('lemlabs_common.knp_menu_controller');
+        if($this->container->getParameter('lemlabs_common.knp_menu_builder'))
+            return $this->container->getParameter('lemlabs_common.knp_menu_builder');
         return null;
     }
 	

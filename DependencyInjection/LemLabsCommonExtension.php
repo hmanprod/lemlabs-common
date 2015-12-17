@@ -22,6 +22,7 @@ class LemLabsCommonExtension extends Extension
         
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+//        $loader->load('config.yml');
         
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -29,8 +30,8 @@ class LemLabsCommonExtension extends Extension
         
         $container->setParameter('lemlabs_common.base_template', $config['base_template']);
         $container->setParameter('lemlabs_common.form_template', $config['form_template']);
-        $container->setParameter('lemlabs_common.knp_menu_controller', $config['knp_menu_controller']);
-		$container->setParameter('lemlabs_common.knp_menu_template', $config['knp_menu_template']);
+        $container->setParameter('lemlabs_common.knp_menu_builder', $config['knp_menu_builder']);
+	$container->setParameter('lemlabs_common.knp_menu_template', $config['knp_menu_template']);
     }
     
     public function getAlias()

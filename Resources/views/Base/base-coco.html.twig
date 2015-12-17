@@ -66,7 +66,7 @@
     <!-- Modal Start -->
 
     <!-- Modal Logout -->
-    {% if app.user.id is defined %}
+    {% if app.user %}
     <div class="md-modal md-just-me" id="logout-modal">
         <div class="md-content">
             <h3><strong>Logout</strong> Confirmation</h3>
@@ -74,7 +74,7 @@
                 <p class="text-center">Are you sure want to logout ?</p>
                 <p class="text-center">
                     <button class="btn btn-danger md-close">Nope!</button>
-{#                    <a href="{{ path('admin_logout') }}" class="btn btn-success md-close">Yeah, I'm sure</a>#}
+                    <a href="{{ logout_path(app.security.token.providerKey) }}" class="btn btn-success md-close">Yeah, I'm sure</a>
                 </p>
             </div>
         </div>
@@ -100,7 +100,7 @@
                         <div class="navbar-collapse2">
                             <ul class="nav navbar-nav navbar-right top-navbar">
                                 <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
-                                {% if app.user.id is defined %}
+                                {% if app.user %}
                                 <li class="dropdown topbar-profile">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{#<span class="rounded-image topbar-profile-image"><img src="{{ asset('bundles/lemlabscommon/template/coco/images/users/user-35.jpg') }}"></span>#} {{ app.user }} <i class="fa fa-caret-down"></i></a>
                                     <ul class="dropdown-menu">
@@ -159,8 +159,8 @@
                     <!--- Divider -->
                     <div id="sidebar-menu">
                         {% block leftmenu %}
-                            {% if knp_menu_controller() %}
-                            {{ knp_menu_render(knp_menu_controller(), {'template': 'LemLabsCommonBundle:Menu:knp_menu.html.twig', 'currentClass': 'active'}) }}
+                            {% if knp_menu_builder() %}
+                            {{ knp_menu_render(knp_menu_builder(), {'template': 'LemLabsCommonBundle:Menu:knp_menu.html.twig', 'currentClass': 'active'}) }}
                             {% endif %}
                             {#<ul>
                                 <li class='has_sub'>

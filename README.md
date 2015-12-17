@@ -5,6 +5,7 @@ Use an abstract class to setup CRUD Controller on SF2
 
 
 ** CHANGELOGS v0.1 **
+- Using coco template for CRUD
 - Configuration via config.yml is loaded correctly
 - Create his own block of configuration for config.yml instead of using twig globals
 - Add coco template with this bundle
@@ -12,13 +13,19 @@ Use an abstract class to setup CRUD Controller on SF2
 
 
 ** TODO **
-- Testing the coco template as new layout
 - Thrown an exception if entity is not provided
 - Get entity name as headline if headline is not provided
 - Handle template logo via config.yml
 - Ajouter la traduction fr
 - Add "Setting" Entity for administration utility
-- Add "Securite" Controller to handle authenfication
+--> Update logo from here
+- Add "Menu" Controller to handle menu as Centurion
+--> Use route + parentMenu + permission
+--> List route from SF2
+--> Get role entity from config.yml if not use select2 multiple input[type=text]
+
+** BUG **
+- Logout path didn't work on dev environnement
 
 
 ** Evolution Roadmap **
@@ -27,6 +34,7 @@ Use an abstract class to setup CRUD Controller on SF2
 --> Generate all routes automatically from the controller to avoid to setup them
 --> Create FormType automatically  to avoid to setup it
 - Generate correctly a form as Centurion and Sonata do
+- Handle User CRUD and Authentification workflow
 
 
 ** INSTALLATION **
