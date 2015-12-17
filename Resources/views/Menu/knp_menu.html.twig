@@ -1,0 +1,54 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block linkElement %}
+    {%- set classes = item.linkAttributes('class') is not empty ? item.linkAttributes('class') : [] %}
+    {%- if matcher.isCurrent(item) %}
+        {%- set classes = classes|merge([options.currentClass]) %}
+    {%- endif %}
+    {%- set attributes = item.linkAttributes %}
+    {%- if classes is not empty %}
+        {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
+    {%- endif %}
+    {%- if matcher.isAncestor(item, options.depth) %}
+        {%- set attributes = attributes|merge({'id': options.currentClass}) %}
+    {%- endif %}
+    <a href="{{ item.uri }}"{{ knp_menu.attributes(attributes) }}>
+    	{%- if item.level < 2 %}
+		{% if item.attribute('icon') is not empty  %}
+	            <i class="{{ item.attribute('icon') }}"></i> 
+	        {% endif %}
+	
+                {% if item.children | length %}
+                    <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                {% endif %}
+        {%- endif %}
+
+                <span>{{ block('label') }}</span>
+    </a>
+{% endblock %}
+
+{% block item %}
+	{% if item.displayed %}
+	    {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
+	    {%- if matcher.isCurrent(item) %}
+	        {%- set classes = classes|merge([options.ancestorClass]) %}
+	    {%- endif %}
+	    {%- set attributes = item.attributes %}
+	    {%- if classes is not empty %}
+	        {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
+	    {%- endif %}
+	    <li{{ knp_menu.attributes(attributes) }}>
+	        {%- if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
+	        	{{ block('linkElement') }}
+	        {%- else %}
+	        	{{ block('spanElement') }}
+	        {%- endif %}
+	        
+	        {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : [] %}
+	        {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
+	        {%- set listAttributes = item.childrenAttributes|merge({'class': childrenClasses|join(' ') }) %}
+	        
+	        {{ block('list') }}
+	    </li>
+	{% endif %}
+{% endblock %}

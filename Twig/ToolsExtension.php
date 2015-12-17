@@ -32,6 +32,7 @@ class ToolsExtension extends \Twig_Extension
             new \Twig_SimpleFunction('base_template', array($this, 'getBaseTemplate')),
             new \Twig_SimpleFunction('form_template', array($this, 'getFormTemplate')),
             new \Twig_SimpleFunction('knp_menu_controller', array($this, 'getKnpMenuController')),
+			new \Twig_SimpleFunction('knp_menu_template', array($this, 'getKnpMenuTemplate')),
     	);
     }
 
@@ -50,6 +51,13 @@ class ToolsExtension extends \Twig_Extension
     {
         if($this->container->getParameter('lemlabs_common.knp_menu_controller'))
             return $this->container->getParameter('lemlabs_common.knp_menu_controller');
+        return null;
+    }
+	
+	public function getKnpMenuTemplate()
+    {
+        if($this->container->getParameter('lemlabs_common.knp_menu_template'))
+            return $this->container->getParameter('lemlabs_common.knp_menu_template');
         return null;
     }
     
